@@ -19,7 +19,6 @@ export const GlobalStyles = createGlobalStyle`
     button{
       cursor: pointer;
       border: none;
-      padding: 10px 20px;
       border-radius: 4px;
       font-size: 14px;
     }
@@ -32,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
       --gray4: #121214;
       --color-primary: #27AE60;
       --color-secundary: #EB5757;
+      --color-white: #fff;
     }
 
     .d-flex{display: flex;}
@@ -60,6 +60,10 @@ export const GlobalStyles = createGlobalStyle`
     .wrap{flex-wrap: wrap;}
     .flex-column{flex-direction: column;}
     .flex-row{flex-direction: row;}
+
+    .absolute{position: absolute;}
+    .relative{position: relative;}
+
 
     .div{
       max-width: 370px;

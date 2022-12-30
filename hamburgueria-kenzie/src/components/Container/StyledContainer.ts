@@ -5,6 +5,7 @@ interface iStyledContainer{
   minHeight?: number;
   padding?: number;
   maxWidth?: number;
+  flexDirection?: string;
 }
 
 export const StyledContainer = styled.div<iStyledContainer>`
@@ -13,13 +14,13 @@ export const StyledContainer = styled.div<iStyledContainer>`
   max-width: ${({maxWidth}) => maxWidth + 'px'};
 `;
 
-export const StyledContainerForm = styled.div`
+export const StyledContainerForm = styled.div<iStyledContainer>`
   max-width: 1000px;
   width: 100%;
   padding: 15px;
 
   @media (max-width: 900px) {
-    flex-direction: column-reverse;
+    flex-direction: ${({flexDirection}) => flexDirection};
     justify-content: center;
   }
 `;

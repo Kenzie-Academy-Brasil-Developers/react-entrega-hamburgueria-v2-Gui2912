@@ -1,12 +1,31 @@
 import styled from 'styled-components';
 
-export const StyledForm = styled.form`
+interface iForm {
+  linkHeight: number;
+  linkFont: number;
+  linkBackground?: string;
+}
+
+export const StyledForm = styled.form<iForm>`
   width: 100%;
   max-width: 500px;
   border: 1px solid var(--gray0);
   padding: 12px;
   gap: 25px;
   border-radius: 8px;
+
+  .link {
+    text-decoration: none;
+    color: var(--gray1);
+    background-color: ${({linkBackground}) => `var(${linkBackground})`};
+    height: ${({ linkHeight }) => linkHeight + 'px'};
+    font-size: ${({ linkFont }) => linkFont + 'px'};
+    font-weight: 600;
+  }
+
+  .link:hover {
+    filter: brightness(0.9);
+  }
 `;
 
 export const StyledFormLogo = styled.div`
@@ -16,25 +35,9 @@ export const StyledFormLogo = styled.div`
 
   @media (max-width: 900px) {
     max-width: 500px;
-    
+
     &.elipses {
       display: none;
     }
-  }
-`;
-
-export const StyledInput = styled.input`
-  width: 100%;
-  border: 1px solid var(--gray3);
-  height: 60px;
-  background-color: var(--gray0);
-  border-radius: 8px;
-  padding: 0 15px;
-  font-size: 1rem;
-  border: 2px solid var(--gray0);
-  outline: none;
-
-  :focus {
-    border-color: green;
   }
 `;
