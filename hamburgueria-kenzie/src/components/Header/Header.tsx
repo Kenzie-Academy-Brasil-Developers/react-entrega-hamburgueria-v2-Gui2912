@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledImage } from '../Image/Image';
 import { StyledDivHeaderInput, StyledHeader } from './StyledHeader';
 import Logo from '../../assets/BurgerKenzie.svg';
@@ -8,8 +8,11 @@ import { StyledButton } from '../Button/StyledButton';
 import { BiSearch } from 'react-icons/bi';
 import { BsCart3 } from 'react-icons/bs';
 import { RxExit } from 'react-icons/rx';
+import { UserContext } from '../../contexts/UserContexts/UserContexts';
 
 const Header = () => {
+  const { exit } = useContext(UserContext);
+
   return (
     <StyledWidthFullDiv
       backgroundColor="--gray0"
@@ -35,7 +38,7 @@ const Header = () => {
           </StyledDivHeaderInput>
           <StyledButton
             className="header-icon"
-            id='cart-icon'
+            id="cart-icon"
             backgroundColor="--gray0"
             color="--gray1"
             height={40}
@@ -45,11 +48,12 @@ const Header = () => {
           </StyledButton>
           <StyledButton
             className="header-icon"
-            id='exit-icon'
+            id="exit-icon"
             backgroundColor="--gray0"
             color="--gray1"
             height={40}
             maxWidth={35}
+            onClick={() => exit()}
           >
             <RxExit />
           </StyledButton>

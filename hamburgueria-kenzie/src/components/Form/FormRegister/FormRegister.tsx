@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledButton } from '../../../components/Button/StyledButton';
 import {
   StyledContainer,
@@ -23,8 +23,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formRegisterSchema } from './FormRegisterSchema';
 import { iFormValues } from './types';
+import { UserContext } from '../../../contexts/UserContexts/UserContexts';
 
 const FormRegister = () => {
+  const {postRequestRegister} = useContext(UserContext)
+
   const {
     register,
     handleSubmit,
@@ -34,14 +37,14 @@ const FormRegister = () => {
   });
 
   const submitForm: SubmitHandler<iFormValues> = (data) => {
-    
+
     const registerValues = {
       name: data.name,
       email: data.email,
       password: data.password
     }
 
-    console.log(registerValues);
+    postRequestRegister(registerValues);
   };
 
   return (
@@ -81,8 +84,7 @@ const FormRegister = () => {
               type="text"
               width="100%"
               backgroundColor="--gray0"
-              placeholder="Nome"
-              
+              placeholder="Nome"             
               {...register('name')}
             />
             {errors?.name && (

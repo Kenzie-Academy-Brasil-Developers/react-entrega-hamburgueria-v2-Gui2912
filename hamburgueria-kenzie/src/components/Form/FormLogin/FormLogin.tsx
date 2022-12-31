@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledButton } from '../../Button/StyledButton';
 import {
   StyledContainer,
@@ -16,8 +16,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { iFormLoginValues } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formLoginSchema } from './FormLoginSchema';
+import { UserContext } from '../../../contexts/UserContexts/UserContexts';
 
 const FormLogin = () => {
+  const {postRequestLogin} = useContext(UserContext)
+
+
   const {
     register,
     handleSubmit,
@@ -27,7 +31,7 @@ const FormLogin = () => {
   });
 
   const submitFormLogin: SubmitHandler<iFormLoginValues> = (data) => {
-    console.log(data);
+    postRequestLogin(data);
   };
 
   return (
