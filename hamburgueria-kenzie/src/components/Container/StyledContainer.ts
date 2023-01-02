@@ -6,6 +6,7 @@ interface iStyledContainer{
   padding?: number;
   maxWidth?: number;
   flexDirection?: string;
+  
 }
 
 export const StyledContainer = styled.div<iStyledContainer>`

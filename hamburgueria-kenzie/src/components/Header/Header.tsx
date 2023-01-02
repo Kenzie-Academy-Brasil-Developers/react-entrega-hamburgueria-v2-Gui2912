@@ -9,9 +9,11 @@ import { BiSearch } from 'react-icons/bi';
 import { BsCart3 } from 'react-icons/bs';
 import { RxExit } from 'react-icons/rx';
 import { UserContext } from '../../contexts/UserContexts/UserContexts';
+import { CartContext } from '../../contexts/CartContexts/CartContexts';
 
 const Header = () => {
   const { exit } = useContext(UserContext);
+  const { openCart } = useContext(CartContext)
 
   return (
     <StyledWidthFullDiv
@@ -43,6 +45,7 @@ const Header = () => {
             color="--gray1"
             height={40}
             maxWidth={35}
+            onClick={() => openCart()}
           >
             <BsCart3 />
           </StyledButton>

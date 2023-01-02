@@ -34,6 +34,12 @@ export const GlobalStyles = createGlobalStyle`
       --color-white: #fff;
     }
 
+    .price{
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 16px;
+    }
+
     .d-flex{display: flex;}
 
     .align-items-center{align-items: center;}
@@ -60,6 +66,7 @@ export const GlobalStyles = createGlobalStyle`
     .wrap{flex-wrap: wrap;}
     .flex-column{flex-direction: column;}
     .flex-row{flex-direction: row;}
+    .h-full{height: 100%}
 
     .absolute{position: absolute;}
     .relative{position: relative;}
@@ -89,6 +96,20 @@ export const GlobalStyles = createGlobalStyle`
       color: var(--gray4);
       background-color: var(--gray0);
       text-align: center;
+    }
+
+    .total{
+      padding: 20px 0;
+      border-top: 1px solid var(--gray1);
+
+      p{
+        color: var(--gray1);
+      }
+    }
+
+    .trash-icons:hover{
+      background-color: var(--color-secundary);
+      color: white;
     }
 
     .mg-botton20{
